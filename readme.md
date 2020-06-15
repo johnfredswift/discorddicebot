@@ -1,3 +1,6 @@
+THIS IS NOT MY README, USING TEMPLATE UNTIL ITS COMPLETED
+
+
 ## Overview
 
 Simple Discord bot for dicerolling, offers a digital solution to any faced dice and numerous other use-cases that may be needed in either D&D. It also offers a group 1-100 roller helping divid

@@ -64,5 +64,5 @@ async def grouproll(ctx):
             await ctx.send(f"{author} has already rolled!")
 
 
-
-client.run('NzIxNjI2NzgwMzY4MjQwNzIx.XuXhvg.1-44m9LHaedJRoduhL9dTezf91k')
+botToken = open("token.txt")
+client.run(botToken.read())
