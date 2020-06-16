@@ -3,29 +3,26 @@ THIS IS NOT MY README, USING TEMPLATE UNTIL ITS COMPLETED
 
 ## Overview
 
-Simple Discord bot for dicerolling, offers a digital solution to any faced dice and numerous other use-cases that may be needed in either D&D. It also offers a group 1-100 roller helping divid
+Simple Discord bot for dicerolling, offers a digital solution to any faced dice and numerous other use-cases that may be needed in either D&D. It also offers a group 1-100 roller similar to the !roll command within World of Warcraft.
 
-## Install
-
-Dependencies can be installed into a virtual environment, with pip, using the commands
-
-```
-python3 -m venv <virtual_env_name>
-pip install -r requirements.txt
-```
 
 ## Usage
 
-Requires an API key from Discord Developer Portal for usage inside of the `os.getenv['API_KEY']` and a channel ID for the appropriate channel messages are to be placed into, this is retrieved via `os.getenv['CHANNEL_ID']` as part of running the client.
+Requires an API key from Discord Developer Portal for usage inside of the `os.getenv['API_KEY']`. This is placed within a "token.txt" file in the same folder as the bot.py file. This is a crude solution to hiding the API token from Github but serves the usecase at the moment.
 
 Within the channels the commands are:
+(x is any positive integer number)
 
-* `!newvote movie 1, movie 2, movie 3, ...` starts a new vote, only those with the role of 'Admin' can begin a vote.
-* `!vote X Y Z` allows people to vote after a new vote has begun, the values correspond to the numerical value within list that is presented by the bot. Votes are weighted in order: the first vote is worth 3 points, the second is worth 2, and the last vote is worth 1.
-* `!changevote X Y Z` someone can change their vote if it has already been cast, reusing `!vote` would stop them duplicating the vote.
-* `!standings` will display the current points for each movie.
-* `!endvote` will end the vote casting and write the movie with the highest number of points into the channel.
+* `!roll` rolls a random number between 1 and 100 
+* `!roll x` displays x. This is used in conjuction of other varibles to give sums of complete dice sets
+* `!roll dx` rolls 1 dice of x faces.
+* `!roll xdy` rolls x dice of y faces
+* `!roll 1d2 3 d4` rolls 1 2-sided dice, displays 3 and rolls 1 4-sided dice. This is just an example and it will work with any variations of the commands given and display them by the dice, what they rolled and the total sum of the single command
+* `!newgrouproll` creates a group roll. Only one may be active at a time across a server. This is designed to help a group of members of a discord resolve a winner of a situation in an unbias and speedy fashion.
+* `!grouproll` Each user can use this command once while a grouproll is active. This will roll a number between 1 and 100 and store it till the grouproll has ended.
+* `!endgrouproll` ends the currently group roll. On ending a winner is shown aswell as all participants in decreasing scores, including what roll they achieved.
 
+Output is displayed within the same channel the command was typed
 ## Deployment
 
-A simple deployment is achieved through a t2.micro Ubuntu instance on AWS. The Python file is run via tmux first, so that the process does not stop upon closing the SSH session. There is an argument for running it as a daemon, but this is not too important.
+There are no deployment plans at the moment, within devolpment it is ran through terminal. Should this be deployed it could be done through a AWS instance or another cloud soultion with relative ease.
